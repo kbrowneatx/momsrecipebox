@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  oven_temp: 1
+  cook_time: MyString
+  calories: 1
+  category_id: 
+  instructions: MyText
+  notes: MyText
+  user_id: 
+
+two:
+  name: MyString
+  oven_temp: 1
+  cook_time: MyString
+  calories: 1
+  category_id: 
+  instructions: MyText
+  notes: MyText
+  user_id: 

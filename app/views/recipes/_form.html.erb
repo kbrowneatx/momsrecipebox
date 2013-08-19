@@ -1,0 +1,87 @@
+﻿<%= form_for @recipe, html: { class: 'form-horizontal' } do |f| %>
+
+  <fieldset>
+		<legend>Main Information</legend>
+
+		<div class="field form-group">
+			<%= f.label :name, "Recipe name", class: "col-lg-2 control-label" %>
+			<div class="col-lg-5">
+				<%= f.text_field :name, class: "form-control" %>
+			</div>
+		</div>
+
+		<div class="field form-group">
+			<%= f.label :category_id, class: "col-lg-2 control-label" %>
+			<div class="col-lg-5">
+				<%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Select a category for this recipe..." }, { class: "form-control" } %>
+			</div>
+		</div>
+		
+		<div class="field form-group">
+			<%= f.label :cook_time, class: "col-lg-2 control-label" %>
+			<div class="col-lg-3">
+				<%= f.text_field :cook_time, class: "form-control" %>
+			</div>
+		</div>
+
+		<div class="field form-group">
+			<%= f.label :oven_temp, class: "col-lg-2 control-label" %>
+			<div class="col-lg-2">
+				<%= f.text_field :oven_temp, class: "form-control", placeholder: "degrees F" %>
+			</div>
+		</div>
+
+		<div class="field form-group">
+			<%= f.label :calories, class: "col-lg-2 control-label" %>
+			<div class="col-lg-2">
+				<%= f.text_field :calories, class: "form-control", placeholder: "calories, if known" %>
+			</div>
+		</div>
+	</fieldset>
+	
+		<legend>Ingredients (number: <%= f.object.ingredients.count unless f.object.ingredients.nil? %>)</legend>
+		<%= f.fields_for :ingredients do |builder| %>
+			<%= render 'ingredient_fields', :f => builder %>
+		<% end %>
+		<p class="links">
+			<%= link_to_add_association 'add ingredient', f, :ingredients, { class:"btn btn-primary" } %>
+		</p>
+
+	</fieldset>
+	
+	<fieldset>
+		<legend>How to make it</legend>
+		<div class="field form-group">
+			<%= f.label :instructions, class: "col-lg-2 control-label" %>
+			<div class="col-lg-5">
+				<%= f.text_area :instructions, class: "form-control", rows: "7" %>
+			</div>
+		</div>
+		
+		<div class="field form-group">
+			<%= f.label :notes, class: "col-lg-2 control-label" %>
+			<div class="col-lg-5">
+				<%= f.text_area :notes, class: "form-control", rows: "3" %>
+			</div>
+		</div>
+		
+		<div class="field form-group">
+			<%= f.label :email, "Entered by", class: "col-lg-2 control-label" %>
+			<div class="col-lg-5">
+				<p class: "form-control-static" style="vertical-align: middle;">
+					<% if f.object.new_record? %>
+						<%= current_user.email %>
+					<% else %>
+						<% f.object.user.email unless f.object.user_id.nil? %>	
+					<% end %>
+				</p>
+			</div>
+		</div>
+		
+		<div class="modal-footer col-lg-8">
+				<%= f.submit "save recipe", class: "btn btn-success" %>
+				<%= link_to "cancel & return to list", recipes_path, { class: "btn btn-warning"} %>
+		</div>
+	</fieldset>
+
+<% end %>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MomsRecipeBox</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<div class="head">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="col-lg-6">
+					<div class="media">
+						<img src="/assets/prb_logo.jpg" class="pull-left media-object"> 
+						<h1 style="color: #616d55;">Mom's Recipe Box</h1>
+						<p class="muted">proven recipes from the best home cooks in America!</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-lg-offset-2" style="margin-top:15px;">
+					<p class="text-right muted">
+						<% if user_signed_in? %>
+							<%= link_to('<span class="glyphicon glyphicon-off"> sign out</span>'.html_safe, destroy_user_session_path,  { class: "btn btn-default" , method: :delete }) %><br />
+							<small>Signed in as <%= current_user.email %></small> 
+						<% else %>
+							<%= link_to('<span class="glyphicon glyphicon-off"> sign in</span>'.html_safe, new_user_session_path, { class: "btn btn-default" } ) %> or <%= link_to('<span class="glyphicon glyphicon-user"> register</span>'.html_safe, new_user_registration_path, { class: "btn btn-default" }) %>
+						<% end %>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="navbar">
+			<ul class="nav navbar-nav">
+				<li><%= link_to('<span class="glyphicon glyphicon-home"> home</span>'.html_safe, root_url) %></li>
+				<li><%= link_to('<span class="glyphicon glyphicon-list"> all recipes</span>'.html_safe, recipes_path) %></li>
+				<li><%= link_to('<span class="glyphicon glyphicon-asterisk"> create recipe</span>'.html_safe, new_recipe_path) %></li>
+				<li><a href="#" class="glyphicon glyphicon-info-sign"> about MRB</a></li>
+			</ul>                      
+		</div>
+	</div>	
+	
+	<div class='container'>
+		<%= yield %>
+	</div>
+	
+
+</body>
+</html>

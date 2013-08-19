@@ -1,0 +1,31 @@
+﻿ @import url(http://fonts.googleapis.com/css?family=Rosario);
+ @import url(http://fonts.googleapis.com/css?family=Oxygen);
+
+ $sansFontFamily: Oxygen, Helvetica, Arial, sans-serif;
+ $serifFontFamily: Oxygen, 'Times New Roman', Times, serif;
+
+
+ @import 'twitter/bootstrap';
+ @import 'bootstrap/glyphicons';
+
+body {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.thumbnail {
+	margin-bottom: 10px;
+}
+
+.footer {
+  font-family: $serifFontFamily;
+  margin-top: 40px; 
+  padding-top: 8px; 
+	border-top: 1px solid #ccc;
+	background-color: darken(#fff, 3%);
+	.footer2 {
+		margin-top: 20px; 
+		padding-top: 5px; 
+		border-top: 1px solid #ccc;
+	}
+}

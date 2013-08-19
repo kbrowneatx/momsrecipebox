@@ -1,0 +1,28 @@
+<h1>Recipes#show</h1>
+<p>Find me in app/views/recipes/show.html.erb</p>
+
+<h1>Recipe: <span><%= @recipe.name %></span>
+	<% if user_signed_in? %>
+		<span style="margin-left: 30px;"><%= link_to('<span class="glyphicon glyphicon-edit"> edit</span>'.html_safe, edit_recipe_path(@recipe), { class: "btn btn-mini btn-warning"} ) %></span>
+	<% end %>
+</h1>
+<legend>Preliminaries</legend>
+<p>Category: <%= @recipe.category.name %></p>
+<p>Pre-heat oven to: <%= @recipe.oven_temp %> degrees</p>
+<p>Cook time: <%= @recipe.cook_time %> minutes</p>
+
+<legend>Ingredients</legend>
+
+<% @recipe.ingredients.each do |ingr| %>
+	<ul >
+		<li><%= ingr.name %></li>
+	</ul>
+<% end %>
+
+<legend>Directions and other information</legend>
+
+<h3>Directions</h3>
+<p><%= @recipe.instructions %></p>
+
+<h3>Notes</h3>
+<p><%= @recipe.notes %></p>
