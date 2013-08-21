@@ -35,7 +35,8 @@
 				<li><%= link_to('<span class="glyphicon glyphicon-home"> home</span>'.html_safe, root_url) %></li>
 				<li><%= link_to('<span class="glyphicon glyphicon-list"> all recipes</span>'.html_safe, recipes_path) %></li>
 				<li><%= link_to('<span class="glyphicon glyphicon-asterisk"> create recipe</span>'.html_safe, new_recipe_path) %></li>
-				<li><a href="#" class="glyphicon glyphicon-info-sign"> about MRB</a></li>
+				<li><%= link_to('<span class="glyphicon glyphicon-info-sign"> about MRB</span>'.html_safe, static_pages_about_path) %></li>
+				<li><%= link_to('<span class="glyphicon glyphicon-warning-sign"> legal</span>'.html_safe, static_pages_legal_path) %></li>
 			</ul>                      
 		</div>
 	</div>	

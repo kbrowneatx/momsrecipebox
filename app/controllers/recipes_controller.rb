@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
   def new
 		@recipe = Recipe.new
 		3.times { @recipe.ingredients.build }
+		@counter = 1
   end
 
   def create
@@ -25,6 +26,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
+		@counter = 1
   end
 
   def update

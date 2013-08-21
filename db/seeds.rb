@@ -8,11 +8,13 @@
 
 # populate Category list
 cat_list = [
+	'Appetizers & Beverages',
+	'Eggs & Dairy',
 	'Beef',
+	'Breads',
 	'Poultry',
 	'Pork',
 	'Fish and Seafood',
-	'Breads',
 	'Casseroles',
 	'Breakfast',
 	'Desserts'

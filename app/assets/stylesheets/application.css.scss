@@ -9,13 +9,25 @@
  @import 'bootstrap/glyphicons';
 
 body {
+	font-family: $sansFontFamily;
   padding-top: 10px;
   padding-bottom: 20px;
+}
+
+legend {
+	margin-top: 50px;
+	color: #ff6600;
+	font-weight: 700;
 }
 
 .thumbnail {
 	margin-bottom: 10px;
 }
+
+.links {
+	margin: 45px 0 35px 78px;
+}
+
 
 .footer {
   font-family: $serifFontFamily;

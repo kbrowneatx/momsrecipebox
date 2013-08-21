@@ -39,13 +39,15 @@
 		</div>
 	</fieldset>
 	
-		<legend>Ingredients (number: <%= f.object.ingredients.count unless f.object.ingredients.nil? %>)</legend>
+	<legend>Ingredients (number: <%= f.object.ingredients.count unless f.object.ingredients.nil? %>)</legend>
+	<fieldset id="ingredients">
 		<%= f.fields_for :ingredients do |builder| %>
 			<%= render 'ingredient_fields', :f => builder %>
+			<% @counter += 1 %>
 		<% end %>
-		<p class="links">
-			<%= link_to_add_association 'add ingredient', f, :ingredients, { class:"btn btn-primary" } %>
-		</p>
+		<div class="links">
+			<%= link_to_add_association '+ add ingredient', f, :ingredients, { class:"btn btn-primary" } %>
+		</div>
 
 	</fieldset>
 	
@@ -68,15 +70,26 @@
 		<div class="field form-group">
 			<%= f.label :email, "Entered by", class: "col-lg-2 control-label" %>
 			<div class="col-lg-5">
-				<p class: "form-control-static" style="vertical-align: middle;">
+				<p class: "form-control-static" style="margin-top: 6px;">
 					<% if f.object.new_record? %>
 						<%= current_user.email %>
 					<% else %>
-						<% f.object.user.email unless f.object.user_id.nil? %>	
+						<%= f.object.user.email unless f.object.user_id.nil? %>	
 					<% end %>
 				</p>
 			</div>
 		</div>
+
+		<% if !f.object.new_record? %>
+			<div class="field form-group">
+				<%= f.label :email, "Updated by", class: "col-lg-2 control-label" %>
+				<div class="col-lg-5">
+					<p class: "form-control-static" style="margin-top: 6px;">
+							<%= current_user.email %>
+					</p>
+				</div>
+			</div>
+		<% end %>
 		
 		<div class="modal-footer col-lg-8">
 				<%= f.submit "save recipe", class: "btn btn-success" %>

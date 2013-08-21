@@ -1,4 +1,7 @@
 MomsRecipeBox::Application.routes.draw do
+  get "static_pages/about"
+  get "static_pages/legal"
+  get "static_pages/help"
   devise_for :users
 
   resources :recipes

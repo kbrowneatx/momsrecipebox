@@ -1,15 +1,31 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
-
 <h1>Recipe: <span><%= @recipe.name %></span>
 	<% if user_signed_in? %>
 		<span style="margin-left: 30px;"><%= link_to('<span class="glyphicon glyphicon-edit"> edit</span>'.html_safe, edit_recipe_path(@recipe), { class: "btn btn-mini btn-warning"} ) %></span>
 	<% end %>
 </h1>
-<legend>Preliminaries</legend>
-<p>Category: <%= @recipe.category.name %></p>
-<p>Pre-heat oven to: <%= @recipe.oven_temp %> degrees</p>
-<p>Cook time: <%= @recipe.cook_time %> minutes</p>
+
+<div class="row">
+	<div class="col-lg-4"><%= image_tag("rb1.jpg", class: "img-rounded") %></div>
+	<div class="col-lg-4 col-lg-offset-1">
+		<table class="table table-striped table-condensed">
+			<tr>
+				<th>Meal</th><td><%= @recipe.category.name %></td>
+			</tr>
+			<tr>
+				<th>Category</th><td><%= @recipe.category.name %></td>
+			</tr>
+			<tr>
+				<th>Pre-heat oven to</th><td><%= @recipe.oven_temp %> degrees</td>
+			</tr>
+			<tr>
+				<th>Cook time</th><td><%= @recipe.cook_time %> minutes</td>
+			</tr>
+			<tr>
+				<th>entered by</th><td><%= @recipe.user.email unless @recipe.user_id.nil? %></td>
+			</tr>
+		</table>
+	</div>
+</div>
 
 <legend>Ingredients</legend>
 
@@ -19,10 +35,12 @@
 	</ul>
 <% end %>
 
-<legend>Directions and other information</legend>
+<legend>Directions</legend>
 
 <h3>Directions</h3>
 <p><%= @recipe.instructions %></p>
 
 <h3>Notes</h3>
 <p><%= @recipe.notes %></p>
+
+
