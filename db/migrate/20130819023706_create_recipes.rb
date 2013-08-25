@@ -8,6 +8,15 @@ class CreateRecipes < ActiveRecord::Migration
       t.references :category, index: true
       t.text :instructions
       t.text :notes
+      t.text :from_kitchen
+			t.boolean :quickneasy
+			t.boolean :leftovers
+			t.boolean :kidfav
+			t.boolean :xmas
+			t.boolean :grill
+			t.boolean :turkey
+			t.boolean :lite
+			t.boolean :summer
       t.references :user, index: true
 
       t.timestamps

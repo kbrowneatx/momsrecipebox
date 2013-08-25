@@ -1,0 +1,22 @@
+﻿<table class="table table-striped">
+	<tr>
+		<th>name</th>
+		<th>category</th>
+		<th>cook time</th>
+		<th>oven temp</th>
+		<th># ingredients</th>
+		<th colspan="3">options</th>
+	</tr>
+	<% @recipes.each do |r| %>
+		<tr id="recipe<%= r.id %>">
+			<td><%= r.name %></td>
+			<td><%= r.category.name unless r.category.nil? %></td>
+			<td><%= r.cook_time %></td>
+			<td><%= r.oven_temp %></td>
+			<td><%= r.ingredients.count %></td>
+			<td><%= link_to('<i class="glyphicon glyphicon-eye-open"/>'.html_safe, r, title: "Show #{r.name}") %></td>
+			<td><% if user_signed_in? %><%= link_to('<i class="glyphicon glyphicon-edit"/>'.html_safe, edit_recipe_path(r)) %><% end %></td>
+			<td><% if user_signed_in? %><%= link_to('<i class="glyphicon glyphicon-remove"/>'.html_safe, r, method: :delete, remote: true, confirm: "Are you sure?") %><% end %></td>
+		</tr>
+	<% end %>
+</table>

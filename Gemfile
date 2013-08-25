@@ -12,7 +12,12 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 															:github => 'anjlab/bootstrap-rails',
 															:branch => '3.0.0'
 gem 'bootstrap-glyphicons'
+
+# Use Cocoon for dynamic nested forms
 gem 'cocoon'
+
+# Use Carrierwave for uploading picture files to new recipes
+gem 'carrierwave'
 
 # Use devise and cancan for user and access control
 gem 'devise'

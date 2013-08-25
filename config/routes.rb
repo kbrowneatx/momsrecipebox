@@ -1,7 +1,9 @@
 MomsRecipeBox::Application.routes.draw do
-  get "static_pages/about"
-  get "static_pages/legal"
-  get "static_pages/help"
+
+	%w[about privacy legal help].each do |page|
+		get page, controller: "static_pages", action: page
+	end
+	
   devise_for :users
 
   resources :recipes

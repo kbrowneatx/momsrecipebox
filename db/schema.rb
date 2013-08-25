@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130819024041) do
+ActiveRecord::Schema.define(version: 20130824203806) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -36,9 +36,19 @@ ActiveRecord::Schema.define(version: 20130819024041) do
     t.integer  "category_id"
     t.text     "instructions"
     t.text     "notes"
+    t.text     "from_kitchen"
+    t.boolean  "quickneasy"
+    t.boolean  "leftovers"
+    t.boolean  "kidfav"
+    t.boolean  "xmas"
+    t.boolean  "grill"
+    t.boolean  "turkey"
+    t.boolean  "lite"
+    t.boolean  "summer"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   add_index "recipes", ["category_id"], name: "index_recipes_on_category_id"

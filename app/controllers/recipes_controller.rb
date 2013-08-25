@@ -11,13 +11,13 @@ class RecipesController < ApplicationController
   end
 
   def new
-		@recipe = Recipe.new
+		@recipe = @user.recipes.new
 		3.times { @recipe.ingredients.build }
 		@counter = 1
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = @user.recipes.new(recipe_params)
     if @recipe.save
       redirect_to @recipe
     else
@@ -38,6 +38,14 @@ class RecipesController < ApplicationController
 	end
 
   def destroy
+		if @recipe.destroy
+			respond_to do |format|
+				format.js {}
+			end
+		else
+			flash[:error] = "Error deleting recipe. Try again or contact sysadmin"
+			redirect_to @recipe
+		end
   end
 	
   def find_recipe
@@ -47,7 +55,26 @@ class RecipesController < ApplicationController
 	private
 	
 	def recipe_params
-		params.require(:recipe).permit( :id, :name, :category_id, :cook_time, :oven_temp, :calories, :instructions, :notes, :email, ingredients_attributes: [:id, :name])
+		params.require(:recipe).permit( :id, 
+																		:name,
+																		:category_id, 
+																		:cook_time, 
+																		:oven_temp, 
+																		:from_kitchen, 
+																		:calories, 
+																		:instructions, 
+																		:notes, 
+																		:quickneasy, 
+																		:kidfav, 
+																		:leftovers, 
+																		:xmas, 
+																		:grill, 
+																		:turkey, 
+																		:lite, 
+																		:summer, 
+																		:user_id, 
+																		ingredients_attributes: [:id, :name]
+																		)
 	end
 
 end

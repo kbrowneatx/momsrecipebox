@@ -10,24 +10,24 @@
 cat_list = [
 	'Appetizers & Beverages',
 	'Eggs & Dairy',
-	'Beef',
-	'Breads',
+	'Soups & Salads',
+	'Vegetables & Sides',
+	'Meats',
 	'Poultry',
-	'Pork',
-	'Fish and Seafood',
-	'Casseroles',
-	'Breakfast',
-	'Desserts'
-
+	'Seafood',
+	'Pastas & Casseroles',
+	'Breads, Rolls & Pastries',
+	'Cakes, Cookies & Desserts'
 ]
 
 cat_list.each do |name|
   Category.create!(name: name)
 end
 
+
 recipe_list = [
-	["Best Roast Beef","1","5 min per lb","500","325","Soften butter, mix with salt, pepper, onion powder and garlic powder. Spread mixture liberally over the roast. Place roast in shallow baking pan. Roast at 350 for 20 minutes per pound. Let roast stand for 10 minutes before slicing.","Turn down oven to 200 after 5xlbs. Best dinner ever","1"],
-	["Cranberry-Apple Bake","8","45 min","325","400","Dice apples. Mix with cranberries and sugar. Pour in baking dish. Mix butter, oats, brown sugar, flour. Spread over fruit. Bake.","Awesome with vanilla ice cream","1"]
+	["Best Roast Beef","5","5 min per lb","500","325","Soften butter, mix with salt, pepper, onion powder and garlic powder. Spread mixture liberally over the roast. Place roast in shallow baking pan. Roast at 350 for 20 minutes per pound. Let roast stand for 10 minutes before slicing.","Turn down oven to 200 after 5xlbs. Best dinner ever","1"],
+	["Cranberry-Apple Bake","4","45 min","325","400","Dice apples. Mix with cranberries and sugar. Pour in baking dish. Mix butter, oats, brown sugar, flour. Spread over fruit. Bake.","Awesome with vanilla ice cream","1"]
 ]
 
 recipe_list.each do |name,cat_id,time,temp,cals,instructions,notes,user_id|
