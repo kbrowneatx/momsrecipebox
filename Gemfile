@@ -9,15 +9,15 @@ gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-															:github => 'anjlab/bootstrap-rails',
-															:branch => '3.0.0'
-gem 'bootstrap-glyphicons'
+															:github => 'anjlab/bootstrap-rails'
+# gem 'bootstrap-glyphicons'
 
 # Use Cocoon for dynamic nested forms
 gem 'cocoon'
 
-# Use Carrierwave for uploading picture files to new recipes
+# Use Carrierwave for uploading picture files to new recipes, Cloudinary for cloud-based pic scaling
 gem 'carrierwave'
+gem 'cloudinary'
 
 # Use devise and cancan for user and access control
 gem 'devise'

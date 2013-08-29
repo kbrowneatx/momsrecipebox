@@ -5,7 +5,7 @@
 </h1>
 
 <div class="row">
-	<div class="col-lg-4"><%= image_tag(@recipe.image, class: "img-rounded") %></div>
+	<div class="col-lg-4"><%= image_tag @recipe.image_url(:std).to_s %></div>
 	<div class="col-lg-5 col-lg-offset-1">
 		<table class="table table-striped table-condensed">
 			<tr>
@@ -22,6 +22,9 @@
 			</tr>
 			<tr>
 				<th>From the kitchen of</th><td><%= @recipe.from_kitchen %></td>
+			</tr>
+			<tr>
+				<th>image file name</th><td><%= @recipe.image_url(:std).to_s %></td>
 			</tr>
 			<tr>
 				<th>Tags</th>

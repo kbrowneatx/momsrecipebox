@@ -103,7 +103,6 @@
 		<fieldset id="ingredients">
 			<%= f.fields_for :ingredients do |builder| %>
 				<%= render 'ingredient_fields', :f => builder %>
-				<% @counter += 1 %>
 			<% end %>
 			<div class="links">
 				<%= link_to_add_association '+ add ingredient', f, :ingredients, { class:"btn btn-primary" } %>
@@ -130,7 +129,9 @@
 			<div class="field form-group">
 				<%= f.label :image, "Upload image", class: "col-lg-2 control-label" %>
 				<div class="col-lg-5">
-					<%= f.file_field :image, class: "alert alert-success" %>
+					<%= f.hidden_field :image_cache %> 
+					<%= f.file_field :image, class: "alert alert-success" %> 
+					Currently: <%= f.object.image ? f.object.image_url : "None" %>
 				</div>
 			</div>
 			

@@ -2,15 +2,12 @@
  @import url(http://fonts.googleapis.com/css?family=Oxygen);
 
  $sansFontFamily: Oxygen, Helvetica, Arial, sans-serif;
- $serifFontFamily: Oxygen, 'Times New Roman', Times, serif;
+ $serifFontFamily: Rosario, 'Times New Roman', Times, serif;
 
 
  @import 'twitter/bootstrap';
- @import 'bootstrap/glyphicons';
 
 body {
-	font-family: $sansFontFamily;
-  padding-top: 10px;
   padding-bottom: 20px;
 }
 
@@ -20,8 +17,14 @@ legend {
 	font-weight: 700;
 }
 
-.thumbnail {
-	margin-bottom: 10px;
+.navbar-static-top {
+  margin-bottom: 19px;
+}
+
+.navbarlogo {
+	margin: 0 3px 0 10px;
+	padding: 0;
+	height: 25px;
 }
 
 .links {
@@ -29,15 +32,19 @@ legend {
 }
 
 
-.footer {
-  font-family: $serifFontFamily;
-  margin-top: 40px; 
-  padding-top: 8px; 
-	border-top: 1px solid #ccc;
-	background-color: darken(#fff, 3%);
-	.footer2 {
-		margin-top: 20px; 
-		padding-top: 5px; 
-		border-top: 1px solid #ccc;
-	}
+.container .credit {
+  margin: 20px 0;
 }
+
+/* Set the fixed height of the footer here */
+#footer {
+  margin-top: 100px;
+	height: 60px;
+  background-color: #f5f5f5;
+}
+
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+

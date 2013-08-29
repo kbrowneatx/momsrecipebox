@@ -8,7 +8,8 @@ class Recipe < ActiveRecord::Base
 																:reject_if => lambda { |a| a[:name].blank? },
                                 :allow_destroy => true
 
-
+	mount_uploader :image, ImageUploader
+	
 	def tags_string
 		tags_string = ""
 		if self.quickneasy
